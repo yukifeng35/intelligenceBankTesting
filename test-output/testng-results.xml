@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-06-24T00:26:45 AEST" name="Default suite" finished-at="2020-06-24T00:28:29 AEST" duration-ms="103748">
+    <groups>
+    </groups>
+    <test started-at="2020-06-24T00:26:45 AEST" name="Default test" finished-at="2020-06-24T00:28:29 AEST" duration-ms="103748">
+      <class name="testCase.ContactFieldTest">
+        <test-method is-config="true" signature="navigeteToContactUsPage()[pri:0, instance:testCase.ContactFieldTest@17c1bced]" started-at="2020-06-24T00:26:45 AEST" name="navigeteToContactUsPage" finished-at="2020-06-24T00:28:17 AEST" duration-ms="92154" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigeteToContactUsPage -->
+        <test-method signature="setTextInContactUs()[pri:0, instance:testCase.ContactFieldTest@17c1bced]" started-at="2020-06-24T00:28:17 AEST" name="setTextInContactUs" finished-at="2020-06-24T00:28:28 AEST" duration-ms="10922" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setTextInContactUs -->
+        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:testCase.ContactFieldTest@17c1bced]" started-at="2020-06-24T00:28:28 AEST" name="tearDownTest" finished-at="2020-06-24T00:28:29 AEST" duration-ms="542" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+      </class> <!-- testCase.ContactFieldTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
