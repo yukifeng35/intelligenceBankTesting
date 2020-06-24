@@ -2,10 +2,10 @@ package testData;
 
 import org.json.JSONObject;
 
-public class ContactFieldData {
+public class ContactUsFormTestData {
 
 
-	public static JSONObject contactJsonData() {
+	public static JSONObject contactUsFormJsonTestData() {
 		
 		JSONObject obj = new JSONObject();
 		
@@ -21,5 +21,6 @@ public class ContactFieldData {
 		
 		return obj;
 	}
+	
 
 }

@@ -16,26 +16,31 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 public class GetScreenshot {
 	
-	static String screenshotPath = System.getProperty("user.dir");
+	static String UseDir = System.getProperty("user.dir");
 	
-	public static void getScreenshotByfield(WebDriver driver, By field, String fileName) {
-		WebElement contactForm = driver.findElement(field);
+	public static void getScreenshotPartPage(WebDriver driver, By area, String fileName) {
+		WebElement areaElement = driver.findElement(area);
 		driver.manage().window().fullscreen();
+		//It's for removing the sticky header for screenshot
 		((JavascriptExecutor) driver).executeScript("$('.sticky-header').css('position', 'relative');");
-
-		Screenshot contactPageScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver,contactForm);
+		//Take screenshot
+		Screenshot partPageScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver,areaElement);
 		try {                 
-			ImageIO.write(contactPageScreenshot.getImage(),"PNG",new File(screenshotPath+"//screenshot/contactUsPage/"+fileName+".png"));       
+			ImageIO.write(partPageScreenshot.getImage(),"PNG",new File(UseDir+"//screenshot/"+fileName+".png"));       
 			} catch (IOException e) {                              
 			  e.printStackTrace();
 			}     
 	}
 	
+	//unused, for further testing
 	public static void getScreenshotFullPage(WebDriver driver, String fileName) {
 		driver.manage().window().fullscreen();
-		Screenshot contactPageScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
+		//It's for removing the sticky header for screenshot
+		((JavascriptExecutor) driver).executeScript("$('.sticky-header').css('position', 'relative');");
+		//Take screenshot
+		Screenshot fullPageScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
 		try {                 
-			ImageIO.write(contactPageScreenshot.getImage(),"PNG",new File(screenshotPath+"//screenshot/contactUsPage/"+fileName+".png"));       
+			ImageIO.write(fullPageScreenshot.getImage(),"PNG",new File(UseDir+"//screenshot/"+fileName+".png"));       
 			} catch (IOException e) {                              
 			  e.printStackTrace();
 			}     

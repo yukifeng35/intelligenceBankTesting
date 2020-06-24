@@ -5,10 +5,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class OpenBrowser {
 
-	static String chromeDriverPath = System.getProperty("user.dir");
+	static String chromeDriverPath = "//driver/chrome/chromedriver";
 
 	public static WebDriver lanuchChrome(String url){
-		System.setProperty("webdriver.chrome.driver", chromeDriverPath+"//driver/chrome/chromedriver");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + chromeDriverPath);
 		WebDriver driver = new ChromeDriver();
 		driver.get(url);
 		return driver;
