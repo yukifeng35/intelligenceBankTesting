@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCase.ContactFieldTest">
+      <class name="testCase.ContactUsFormTest">
         <methods>
+          <include name="pageRefreshAfterEachTest"/>
+          <include name="navigateToContactUsPage"/>
+          <include name="fillInContactUsFormTest"/>
           <include name="tearDownTest"/>
-          <include name="setTextInContactUs"/>
-          <include name="navigeteToContactUsPage"/>
         </methods>
-      </class> <!-- testCase.ContactFieldTest -->
+      </class> <!-- testCase.ContactUsFormTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
