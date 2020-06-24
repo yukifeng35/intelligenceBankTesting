@@ -14,6 +14,7 @@ import pages.HomePage;
 import testData.ConfigData;
 import testData.ContactUsFormTestData;
 import pages.ContactUsPage;
+import pages.ContactUsPage.errorPromptName;
 
 
 public class ContactUsFormTest {
@@ -60,9 +61,9 @@ public class ContactUsFormTest {
 		contactUsPageObj.fillInContactUsForm(testDataObj);
 		
 		//Verify Contact Us form missing required field text
-		Assert.assertEquals(contactUsPageObj.getWarningText("companyNameMissing"), ContactUsFormTestData.missingRequiredWarning);
-		Assert.assertEquals(contactUsPageObj.getWarningText("firstNameMissing"), ContactUsFormTestData.missingRequiredWarning);
-		Assert.assertEquals(contactUsPageObj.getWarningText("emailMissing"), ContactUsFormTestData.missingRequiredWarning);
+		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.COMPANY_NAME_MISSING), ContactUsFormTestData.missingRequiredWarning);
+		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.FIRST_NAME_MISSING), ContactUsFormTestData.missingRequiredWarning);
+		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.EMAIL_MISSING), ContactUsFormTestData.missingRequiredWarning);
 		
 		//Get screenshot of the filled in contact form with missing required field warning message
 		GetScreenshot.getScreenshotPartial(driver,ContactUsFormTestData.targetArea,ContactUsFormTestData.missingRequiredScreenshotFileName);
@@ -80,9 +81,9 @@ public class ContactUsFormTest {
 		contactUsPageObj.fillInContactUsForm(testDataObj);
 		
 		//Verify Contact Us form format validation text
-		Assert.assertEquals(contactUsPageObj.getWarningText("emailFormat"),ContactUsFormTestData.emailFormatWarning);
-		Assert.assertEquals(contactUsPageObj.getWarningText("phoneNumberLength"), ContactUsFormTestData.phoneNumberLengthWarning);
-		Assert.assertEquals(contactUsPageObj.getWarningText("phoneNumberChar"), ContactUsFormTestData.phoneNumberCharacterWarning);
+		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.EMAIL_FORMAT),ContactUsFormTestData.emailFormatWarning);
+		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.PHONE_NUMBER_LENGTH), ContactUsFormTestData.phoneNumberLengthWarning);
+		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.PHONE_NUMBER_CHAR), ContactUsFormTestData.phoneNumberCharacterWarning);
 		
 		//Get screenshot of the filled in contact form with format validation warning message
 		GetScreenshot.getScreenshotPartial(driver,ContactUsFormTestData.targetArea,ContactUsFormTestData.formatValidationScreenshotFileName);
@@ -94,6 +95,7 @@ public class ContactUsFormTest {
 	public void pageRefreshAfterEachTest() {
 		driver.navigate().refresh();
 		LoadPage.loadPageForHeader(driver);
+		
 	}
 	
 	@AfterTest
@@ -101,6 +103,6 @@ public class ContactUsFormTest {
 		//Close browser
 		driver.close();
 		driver.quit();
-		System.out.println("Test Completed successfully");
+		System.out.println("Test Completed");
 	}
 }

@@ -31,6 +31,10 @@ public class ContactUsPage {
 	//submit button element
 	By submitElement = By.cssSelector(".hs_submit:nth-child(12) .hs-button");
 	
+	public enum errorPromptName {
+		COMPANY_NAME_MISSING, FIRST_NAME_MISSING, EMAIL_MISSING, EMAIL_FORMAT, PHONE_NUMBER_LENGTH, PHONE_NUMBER_CHAR
+	}
+	
 	public ContactUsPage(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -50,25 +54,26 @@ public class ContactUsPage {
 		}
 	}
 	
-	public String getWarningText(String fieldName){
-		switch (fieldName){
-			case "companyNameMissing":
+	public String getWarningText(errorPromptName errorName){
+		switch (errorName){
+			case COMPANY_NAME_MISSING:
 				return driver.findElement(companyNameRequired).getText();
-			case "firstNameMissing":
+			case FIRST_NAME_MISSING:
 				return driver.findElement(firstNameRequired).getText();
-			case "emailMissing":
+			case EMAIL_MISSING:
 				return driver.findElement(emailRequired).getText();
-			case "emailFormat":
+			case EMAIL_FORMAT:
 				return driver.findElement(emailFormatValidation).getText();
-			case "phoneNumberLength":
+			case PHONE_NUMBER_LENGTH:
 				return driver.findElement(phoneNumberLengthValidation).getText();
-			case "phoneNumberChar":
+			case PHONE_NUMBER_CHAR:
 				return driver.findElement(phoneNumberCharacterValidation).getText();
 			default:
 				return null;
 		}
 	}
-
+	
+	
 	//not used, for further testing
 	public void clickSubmit(){
 		driver.findElement(submitElement).click();
