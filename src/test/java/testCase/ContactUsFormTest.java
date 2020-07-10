@@ -21,6 +21,7 @@ public class ContactUsFormTest {
 	
 	WebDriver driver = null;
 	
+	
 	@BeforeTest
 	public void navigateToContactUsPage(){
 		//Open the home page
@@ -63,7 +64,7 @@ public class ContactUsFormTest {
 		//Verify Contact Us form missing required field text
 		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.COMPANY_NAME_MISSING), ContactUsFormTestData.missingRequiredWarning);
 		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.FIRST_NAME_MISSING), ContactUsFormTestData.missingRequiredWarning);
-		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.EMAIL_MISSING), ContactUsFormTestData.missingRequiredWarning);
+		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.EMAIL_VALIDATION), ContactUsFormTestData.missingRequiredWarning);
 		
 		//Get screenshot of the filled in contact form with missing required field warning message
 		GetScreenshot.getScreenshotPartial(driver,ContactUsFormTestData.targetArea,ContactUsFormTestData.missingRequiredScreenshotFileName);
@@ -81,7 +82,7 @@ public class ContactUsFormTest {
 		contactUsPageObj.fillInContactUsForm(testDataObj);
 		
 		//Verify Contact Us form format validation text
-		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.EMAIL_FORMAT),ContactUsFormTestData.emailFormatWarning);
+		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.EMAIL_VALIDATION),ContactUsFormTestData.emailFormatWarning);
 		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.PHONE_NUMBER_LENGTH), ContactUsFormTestData.phoneNumberLengthWarning);
 		Assert.assertEquals(contactUsPageObj.getWarningText(errorPromptName.PHONE_NUMBER_CHAR), ContactUsFormTestData.phoneNumberCharacterWarning);
 		

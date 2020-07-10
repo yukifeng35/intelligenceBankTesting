@@ -48,7 +48,7 @@ public class ContactUsFormTestData {
 		return obj;
 	}
 	
-public static JSONObject fillFormJsonSpecialFieldsValidation() {
+	public static JSONObject fillFormJsonSpecialFieldsValidation() {
 		
 		JSONObject obj = new JSONObject();
 		

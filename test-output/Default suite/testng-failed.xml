@@ -5,12 +5,9 @@
     <classes>
       <class name="testCase.ContactUsFormTest">
         <methods>
-          <include name="fillInContactUsFormTestForMissingRequiredField"/>
           <include name="pageRefreshAfterEachTest"/>
           <include name="navigateToContactUsPage"/>
           <include name="fillInContactUsFormTest"/>
-          <include name="fillInContactUsFormTestForDataFormatValidation"/>
-          <include name="tearDownTest"/>
         </methods>
       </class> <!-- testCase.ContactUsFormTest -->
     </classes>

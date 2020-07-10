@@ -2,43 +2,39 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-06-25T00:30:54 AEST" name="Default suite" finished-at="2020-06-25T00:33:48 AEST" duration-ms="174042">
+  <suite started-at="2020-07-10T16:39:44 AEST" name="Default suite" finished-at="2020-07-10T16:42:16 AEST" duration-ms="151654">
     <groups>
     </groups>
-    <test started-at="2020-06-25T00:30:54 AEST" name="Default test" finished-at="2020-06-25T00:33:48 AEST" duration-ms="174042">
+    <test started-at="2020-07-10T16:39:44 AEST" name="Default test" finished-at="2020-07-10T16:42:16 AEST" duration-ms="151654">
       <class name="testCase.ContactUsFormTest">
-        <test-method is-config="true" signature="navigateToContactUsPage()[pri:0, instance:testCase.ContactUsFormTest@358c99f5]" started-at="2020-06-25T00:30:54 AEST" name="navigateToContactUsPage" finished-at="2020-06-25T00:32:57 AEST" duration-ms="123000" status="PASS">
+        <test-method is-config="true" signature="navigateToContactUsPage()[pri:0, instance:testCase.ContactUsFormTest@53ca01a2]" started-at="2020-07-10T16:39:44 AEST" name="navigateToContactUsPage" finished-at="2020-07-10T16:41:28 AEST" duration-ms="103784" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateToContactUsPage -->
-        <test-method signature="fillInContactUsFormTest()[pri:0, instance:testCase.ContactUsFormTest@358c99f5]" started-at="2020-06-25T00:32:57 AEST" name="fillInContactUsFormTest" finished-at="2020-06-25T00:33:24 AEST" duration-ms="27199" status="PASS">
+        <test-method signature="fillInContactUsFormTest()[pri:0, instance:testCase.ContactUsFormTest@53ca01a2]" started-at="2020-07-10T16:41:28 AEST" name="fillInContactUsFormTest" finished-at="2020-07-10T16:41:53 AEST" duration-ms="25131" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fillInContactUsFormTest -->
-        <test-method is-config="true" signature="pageRefreshAfterEachTest()[pri:0, instance:testCase.ContactUsFormTest@358c99f5]" started-at="2020-06-25T00:33:24 AEST" name="pageRefreshAfterEachTest" finished-at="2020-06-25T00:33:29 AEST" duration-ms="4329" status="PASS">
+        <test-method is-config="true" signature="pageRefreshAfterEachTest()[pri:0, instance:testCase.ContactUsFormTest@53ca01a2]" started-at="2020-07-10T16:41:53 AEST" name="pageRefreshAfterEachTest" finished-at="2020-07-10T16:41:57 AEST" duration-ms="3800" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- pageRefreshAfterEachTest -->
-        <test-method signature="fillInContactUsFormTestForDataFormatValidation()[pri:0, instance:testCase.ContactUsFormTest@358c99f5]" started-at="2020-06-25T00:33:29 AEST" name="fillInContactUsFormTestForDataFormatValidation" finished-at="2020-06-25T00:33:35 AEST" duration-ms="5855" status="PASS">
+        <test-method signature="fillInContactUsFormTestForDataFormatValidation()[pri:0, instance:testCase.ContactUsFormTest@53ca01a2]" started-at="2020-07-10T16:41:57 AEST" name="fillInContactUsFormTestForDataFormatValidation" finished-at="2020-07-10T16:42:03 AEST" duration-ms="6030" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fillInContactUsFormTestForDataFormatValidation -->
-        <test-method is-config="true" signature="pageRefreshAfterEachTest()[pri:0, instance:testCase.ContactUsFormTest@358c99f5]" started-at="2020-06-25T00:33:35 AEST" name="pageRefreshAfterEachTest" finished-at="2020-06-25T00:33:39 AEST" duration-ms="4296" status="PASS">
+        <test-method is-config="true" signature="pageRefreshAfterEachTest()[pri:0, instance:testCase.ContactUsFormTest@53ca01a2]" started-at="2020-07-10T16:42:03 AEST" name="pageRefreshAfterEachTest" finished-at="2020-07-10T16:42:07 AEST" duration-ms="3557" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- pageRefreshAfterEachTest -->
-        <test-method signature="fillInContactUsFormTestForMissingRequiredField()[pri:0, instance:testCase.ContactUsFormTest@358c99f5]" started-at="2020-06-25T00:33:39 AEST" name="fillInContactUsFormTestForMissingRequiredField" finished-at="2020-06-25T00:33:44 AEST" duration-ms="4915" status="PASS">
+        <test-method signature="fillInContactUsFormTestForMissingRequiredField()[pri:0, instance:testCase.ContactUsFormTest@53ca01a2]" started-at="2020-07-10T16:42:07 AEST" name="fillInContactUsFormTestForMissingRequiredField" finished-at="2020-07-10T16:42:12 AEST" duration-ms="5246" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fillInContactUsFormTestForMissingRequiredField -->
-        <test-method is-config="true" signature="pageRefreshAfterEachTest()[pri:0, instance:testCase.ContactUsFormTest@358c99f5]" started-at="2020-06-25T00:33:44 AEST" name="pageRefreshAfterEachTest" finished-at="2020-06-25T00:33:48 AEST" duration-ms="3800" status="PASS">
+        <test-method is-config="true" signature="pageRefreshAfterEachTest()[pri:0, instance:testCase.ContactUsFormTest@53ca01a2]" started-at="2020-07-10T16:42:12 AEST" name="pageRefreshAfterEachTest" finished-at="2020-07-10T16:42:16 AEST" duration-ms="3977" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- pageRefreshAfterEachTest -->
-        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:testCase.ContactUsFormTest@358c99f5]" started-at="2020-06-25T00:33:48 AEST" name="tearDownTest" finished-at="2020-06-25T00:33:48 AEST" duration-ms="539" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDownTest -->
       </class> <!-- testCase.ContactUsFormTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

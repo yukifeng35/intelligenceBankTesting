@@ -1,8 +1,11 @@
 package pages;
 
 import org.json.JSONObject;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class ContactUsPage {
@@ -10,64 +13,61 @@ public class ContactUsPage {
 	WebDriver driver = null;
 	
 	//All field elements
-	By companyName = By.name("company");
-	By firstName = By.name("firstname");
-	By lastName = By.name("lastname");
-	By email = By.name("email");
-	By country = By.name("country");
-	By phoneNumber = By.name("phone");
-	By enquiryDetails = By.name("enquiry_details");
-	By productFamily = By.name("product_family");
-	By agree = By.name("i_agree_to_intelligencebank_s_terms_and_conditions");
+	@FindBy(name = "company") WebElement companyName;
+	@FindBy(name = "firstname") WebElement firstName;
+	@FindBy(name = "lastname") WebElement lastName;
+	@FindBy(name = "email") WebElement email;
+	@FindBy(name = "country") WebElement country;
+	@FindBy(name = "phone") WebElement phoneNumber;
+	@FindBy(name = "enquiry_details") WebElement enquiryDetails;
+	@FindBy(name = "product_family") WebElement productFamily;
+	@FindBy(name = "i_agree_to_intelligencebank_s_terms_and_conditions") WebElement agree;
 	
 	//Warning text elements
-	By companyNameRequired = By.xpath("/html/body/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div/div/div/span/div/form/fieldset[1]/div/ul/li/label");
-	By firstNameRequired = By.xpath("/html/body/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div/div/div/span/div/form/fieldset[2]/div[1]/ul/li/label");
-	By emailRequired = By.xpath("/html/body/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div/div/div/span/div/form/fieldset[3]/div/ul/li/label");
-	By emailFormatValidation = By.xpath("/html/body/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div/div/div/span/div/form/fieldset[3]/div/ul/li/label");
-	By phoneNumberLengthValidation = By.xpath("/html/body/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div/div/div/span/div/form/fieldset[4]/div[2]/ul/li[1]/label");
-	By phoneNumberCharacterValidation = By.xpath("/html/body/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div/div/div/span/div/form/fieldset[4]/div[2]/ul/li[2]/label");
-	
-	//submit button element
-	By submitElement = By.cssSelector(".hs_submit:nth-child(12) .hs-button");
-	
+	@FindBy(css = "fieldset.form-columns-1:nth-child(1) > div:nth-child(1) > ul:nth-child(4) > li:nth-child(1) > label:nth-child(1)") WebElement companyNameRequired;
+	@FindBy(css = "fieldset.form-columns-2:nth-child(2) > div:nth-child(1) > ul:nth-child(4) > li:nth-child(1) > label:nth-child(1)") WebElement firstNameRequired;
+	@FindBy(css = "fieldset:nth-child(3) > div:nth-child(1) > ul:nth-child(4) > li:nth-child(1) > label:nth-child(1)") WebElement emailValidation;
+	@FindBy(css = ".hs_phone > ul:nth-child(4) > li:nth-child(1) > label:nth-child(1)") WebElement phoneNumberLengthValidation;
+	@FindBy(css = ".hs_phone > ul:nth-child(4) > li:nth-child(2) > label:nth-child(1)") WebElement phoneNumberCharacterValidation;
+			
+			
+
 	public enum errorPromptName {
-		COMPANY_NAME_MISSING, FIRST_NAME_MISSING, EMAIL_MISSING, EMAIL_FORMAT, PHONE_NUMBER_LENGTH, PHONE_NUMBER_CHAR
+		COMPANY_NAME_MISSING, FIRST_NAME_MISSING, EMAIL_VALIDATION, PHONE_NUMBER_LENGTH, PHONE_NUMBER_CHAR
 	}
 	
 	public ContactUsPage(WebDriver driver) {
 		this.driver = driver;
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 100),this);
 	}
 
 	
 	public void fillInContactUsForm(JSONObject obj){
-		driver.findElement(companyName).sendKeys(obj.getString("CompanyName"));
-		driver.findElement(firstName).sendKeys(obj.getString("FirstName"));
-		driver.findElement(lastName).sendKeys(obj.getString("LastName"));
-		driver.findElement(email).sendKeys(obj.getString("Email"));
-		new Select(driver.findElement(country)).selectByVisibleText(obj.getString("Country"));
-		driver.findElement(phoneNumber).sendKeys(obj.getString("PhoneNumber"));
-		driver.findElement(enquiryDetails).sendKeys(obj.getString("EnquiryDetails"));
-		new Select(driver.findElement(productFamily)).selectByVisibleText(obj.getString("ProductFamily"));
+		companyName.sendKeys(obj.getString("CompanyName"));
+		firstName.sendKeys(obj.getString("FirstName"));
+		lastName.sendKeys(obj.getString("LastName"));
+		email.sendKeys(obj.getString("Email"));
+		new Select(country).selectByVisibleText(obj.getString("Country"));
+		phoneNumber.sendKeys(obj.getString("PhoneNumber"));
+		enquiryDetails.sendKeys(obj.getString("EnquiryDetails"));
+		new Select(productFamily).selectByVisibleText(obj.getString("ProductFamily"));
 		if (obj.getBoolean("Agree")) {
-			driver.findElement(agree).click();
+			agree.click();
 		}
 	}
 	
 	public String getWarningText(errorPromptName errorName){
 		switch (errorName){
 			case COMPANY_NAME_MISSING:
-				return driver.findElement(companyNameRequired).getText();
+				return companyNameRequired.getText();
 			case FIRST_NAME_MISSING:
-				return driver.findElement(firstNameRequired).getText();
-			case EMAIL_MISSING:
-				return driver.findElement(emailRequired).getText();
-			case EMAIL_FORMAT:
-				return driver.findElement(emailFormatValidation).getText();
+				return firstNameRequired.getText();
+			case EMAIL_VALIDATION:
+				return emailValidation.getText();
 			case PHONE_NUMBER_LENGTH:
-				return driver.findElement(phoneNumberLengthValidation).getText();
+				return phoneNumberLengthValidation.getText();
 			case PHONE_NUMBER_CHAR:
-				return driver.findElement(phoneNumberCharacterValidation).getText();
+				return phoneNumberCharacterValidation.getText();
 			default:
 				return null;
 		}
@@ -75,9 +75,9 @@ public class ContactUsPage {
 	
 	
 	//not used, for further testing
-	public void clickSubmit(){
-		driver.findElement(submitElement).click();
-	}
+//	public void clickSubmit(){
+//		driver.findElement(submitElement).click();
+//	}
 	
 
 }
